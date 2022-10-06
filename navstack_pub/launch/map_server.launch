@@ -1,0 +1,5 @@
+<launch>
+
+	<arg name="maps" default="$(find navstack_pub)/maps/new_map.yaml"/>
+	<node pkg="map_server" name="map_server" type="map_server" args="$(arg maps)" respawn="true" />
+</launch>

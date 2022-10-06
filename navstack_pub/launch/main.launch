@@ -1,0 +1,36 @@
+<launch> 
+
+   <arg name="move_forward_only" default="false"/>
+   <arg name="map" default="$(find navstack_pub)/maps/new_map.yaml"/>
+   <arg name="open_rviz" default="true"/>
+
+ <!-- Lidar Data Publisher Using RPLIDAR from Slamtec -->
+   <include file="$(find rplidar_ros)/launch/rplidar.launch"/> 
+
+ <!-- robot_state_publisher --> 
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+   </node>
+
+ <!-- map_server -->
+   <node pkg="map_server" name="map_server" type="map_server" args="$(arg maps)"/>
+
+
+ <!-- amcl -->
+   <include file="$(find navstack_pub)/launch/amcl.launch"/>
+
+ <!-- laser scan matcher -->
+   <include file="$(find navstack_pub)/launch/scan_matcher.launch"/>
+
+ <!-- robot pose estimation -->
+   <!-- include file="$(find robot_pose_ekf)/robot_pose_ekf.launch"/ -->
+
+ <!-- move_base -->
+   <include file="$(find navstack_pub)/launch/move_base.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+   </include>
+
+ <!-- rviz -->
+   <!-- node pkg="rviz" type="rviz" name="rviz" /-->
+
+</launch>
