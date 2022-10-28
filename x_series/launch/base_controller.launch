@@ -1,0 +1,16 @@
+<launch>
+	<node name="motor" pkg="jetbot_ros" type="motor_subscriber.py" output="screen"/>
+	  <param name="robot_description" textfile="$(find x_series)/urdf/head_2d.urdf"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+    <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>
+    <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
+    <!--param name="serial_baudrate"     type="int"    value="256000"--><!--A3 -->
+    <param name="frame_id"            type="string" value="lidar"/>
+    <param name="inverted"            type="bool"   value="false"/>
+    <param name="angle_compensate"    type="bool"   value="true"/>
+    <param name="scan_mode"	type="string"	value="Boost" />
+  </node>
+  
+</launch>

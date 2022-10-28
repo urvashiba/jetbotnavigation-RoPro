@@ -1,0 +1,14 @@
+<launch>
+
+    <include file="$(find x_series)/launch/base_controller.launch">
+    </include>
+
+    <include file="$(find x_series)/launch/cartographer/gbot_nx.launch">
+    </include>
+
+ <include file="$(find x_series)/launch/nav_stack_cartographer.launch">
+    </include>
+
+
+
+</launch>

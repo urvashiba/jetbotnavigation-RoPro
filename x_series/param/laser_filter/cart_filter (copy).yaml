@@ -1,0 +1,42 @@
+scan_filter_chain:
+- name: angle1   #frontleft
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: 0.89
+    upper_angle: 1.15
+- name: angle2    #frontright
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: -1.168
+    upper_angle: -0.72
+- name: angle3
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: 2.54
+    upper_angle: 2.66
+- name: angle4
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: -2.8
+    upper_angle: -2.5
+- name: box_filter
+  type: laser_filters/LaserScanBoxFilter
+  params:
+    box_frame: base_link
+    max_x: 0.39
+    max_y: 0.29
+    max_z: 0.30
+    min_x: -0.39
+    min_y: -0.29
+    min_z: 0.18
+    invert: false
+#- name: shadows
+#  type: laser_filters/ScanShadowsFilter
+#  params:
+#    min_angle: 8
+#    max_angle: 172
+#    neighbors: 5
+#    window: 2
+
+
+

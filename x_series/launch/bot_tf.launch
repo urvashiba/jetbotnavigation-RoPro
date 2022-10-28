@@ -1,0 +1,26 @@
+<launch>
+	<node pkg="tf"
+        type="static_transform_publisher"
+        name="base_laser_broadcaster"
+        args="0.13 0 0.2925 0 0 0 base_link laser 1" />
+<!-- 
+	<node pkg="tf"
+        type="static_transform_publisher"
+        name="camera_link_broadcaster"
+        args="0.43 -0.02 0.1694 -0.075 0 0 base_link camera_link 10" />
+    
+    <node pkg="tf"
+        type="static_transform_publisher"
+        name="virtual_camera_broadcaster"
+        args="0 0.015 0 -1.57079632679 0 -1.57079632679 camera_link virtual_camera 10" />
+	
+    <node pkg="tf"
+        type="static_transform_publisher"
+        name="base_imu_broadcaster"
+        args="0 0 0.13 0 0 0 base_link base_imu 1" /> -->
+
+	<!--node pkg="tf"
+        type="static_transform_publisher"
+        name="camera_depth_broadcaster"
+        args="0 0 0 0 0 0 camera_link camera_depth_frame 10" /-->
+</launch>
