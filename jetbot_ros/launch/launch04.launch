@@ -1,0 +1,18 @@
+<launch>
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+  <node name="jetbot_motors" pkg="jetbot_ros" type="jetbot_motors_2.py">
+  </node>
+ <node name="jetbot_oled" pkg="jetbot_ros" type="jetbot_oled.py">
+  </node>
+  <node name="jetbot_camera" pkg="jetbot_ros" type="jetbot_camera">
+  </node>
+  <node name="joy_node" pkg="joy" type="joy_node">
+  </node>
+  <node name="jetbot_joy" pkg="jetbot_ros" type="jetbot_joy.py">
+  </node>
+  <node name="web_video_server" pkg="web_video_server" type="web_video_server">
+    <param name="port" value="8090"></param>
+    <param name="address" value="192.168.0.36"></param>
+  </node>
+
+</launch>
