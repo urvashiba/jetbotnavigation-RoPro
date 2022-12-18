@@ -1,6 +1,6 @@
 # Jetbot_navigation with google-cartographer
 
-# project
+# project work
 
  Flash your jetson nano's SD card from the official NVIDIA Jetbot website
  Minimum 32 GB card is required.
